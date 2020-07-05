@@ -44,6 +44,7 @@ plt.ticklabel_format(axis = "x", style = "sci", scilimits=(-6,-6))
 plt.xlabel("Tiempo (us)")
 plt.ylabel("Amplitud")
 plt.title('Forma de onda de la portadora en el tiempo')
+plt.grid()
 plt.savefig("graficas/Forma_onda_portadora.png")
 
 
@@ -87,6 +88,7 @@ plt.ticklabel_format(axis = "x", style = "sci", scilimits=(-3,-3))
 plt.xlabel("Tiempo (ms)")
 plt.ylabel("Amplitud de la señal")
 plt.title("Visualizacion para los primeros "+str(p_Prueba)+" bits modulados")
+plt.grid()
 plt.savefig('graficas/modulado.png')
 
 print("La modulacion correspondiente para los primeros " +str(p_Prueba)+ " bits modulados, los cuales son:",bits[0:p_Prueba])
@@ -117,6 +119,7 @@ plt.xlabel("Frecuencias (kHz)")
 plt.ylabel("Densidad espectral de potencia")
 plt.title("Densidad espectral de potencia antes del canal")
 plt.ticklabel_format(axis = "x", style = "sci", scilimits=(3,3))
+plt.grid()
 plt.savefig("graficas/espectro_antes_canal.png")
 
 
@@ -160,6 +163,7 @@ for SNR in range(-2,4):
     plt.ylabel("Amplitud de la señal")
     plt.title("Recepción con SNR = "+str(SNR)+ " dB, de los primero "+str(p_Prueba)+" bits" )
     plt.ticklabel_format(axis = "x", style = "sci", scilimits=(-3,-3))
+    plt.grid()
     plt.savefig("graficas/RX_para_SNR_"+str(SNR)+".png")
     plt.show()
     
@@ -173,6 +177,7 @@ for SNR in range(-2,4):
     plt.ylabel("Densidad espectral de potencia")
     plt.title("Densidad espectral de potencia despues del canal con SNR="+str(SNR)+" dB")
     plt.ticklabel_format(axis = "x", style = "sci", scilimits=(3,3))
+    plt.grid()
     plt.savefig("graficas/espectro_despues_canal_SNR_"+str(SNR)+".png")
     plt.show()
     
