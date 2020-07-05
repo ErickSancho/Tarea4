@@ -40,8 +40,8 @@ sinus = np.sin(2*np.pi * f * tp)
 # Ahora a partir de la los datos definidos podemos graficar la función portadora para un periodo
 
 plt.plot(tp,sinus)
-plt.ticklabel_format(axis = "x", style = "sci", scilimits=(0,0))
-plt.xlabel("Tiempo (s) (notación científica)")
+plt.ticklabel_format(axis = "x", style = "sci", scilimits=(-6,-6))
+plt.xlabel("Tiempo (us)")
 plt.ylabel("Amplitud")
 plt.title('Forma de onda de la portadora en el tiempo')
 plt.savefig("graficas/Forma_onda_portadora.png")
@@ -84,12 +84,12 @@ plt.figure()
 plt.plot
 plt.plot(tp, senal[0:p_Prueba*p])
 plt.ticklabel_format(axis = "x", style = "sci", scilimits=(-3,-3))
-plt.xlabel("Tiempo (s) (notación científica)")
+plt.xlabel("Tiempo (ms)")
 plt.ylabel("Amplitud de la señal")
 plt.title("Visualizacion para los primeros "+str(p_Prueba)+" bits modulados")
-plt.savefig('graficas/mudulado.png')
+plt.savefig('graficas/modulado.png')
 
-print("La modulacion corresponde para los primeros " +str(p_Prueba)+ " bits modulados, los cuales son:",bits[0:p_Prueba])
+print("La modulacion correspondiente para los primeros " +str(p_Prueba)+ " bits modulados, los cuales son:",bits[0:p_Prueba])
 
 
 # 2. Potencia promedio de la señal modulada generada
@@ -138,7 +138,7 @@ def demodular(Ep):
 #Definimos una lista que contiene los valores de BER para el punto 6
 BER=[]
 
-#Creamo el ciclo for para cada valor de SNR
+#Creamos el ciclo for para cada valor de SNR
 for SNR in range(-2,4):
     
     #Calculamos la potencia del ruido:
@@ -156,7 +156,7 @@ for SNR in range(-2,4):
     #Entonces ahora visualizamos los primeros bits recibidos:
     plt.figure()
     plt.plot(tp,RX[0:p*p_Prueba])
-    plt.xlabel("Tiempo(s) (notación científica)")
+    plt.xlabel("Tiempo(ms)")
     plt.ylabel("Amplitud de la señal")
     plt.title("Recepción con SNR = "+str(SNR)+ " dB, de los primero "+str(p_Prueba)+" bits" )
     plt.ticklabel_format(axis = "x", style = "sci", scilimits=(-3,-3))
@@ -177,7 +177,7 @@ for SNR in range(-2,4):
     plt.show()
     
     # Pseudo-energía de la onda original
-    Es = np.sum(sinus**2)
+    Es = np.sum(sinus**2)  #Se calcula aunque no es necesario
 
     #Inicializamos del vector de bits recibidos
     bitsRX = np.zeros(len(bits))
@@ -189,7 +189,7 @@ for SNR in range(-2,4):
     
     err = np.sum(np.abs(bits - bitsRX))
     BER.append(err/N)
-    print("La tasa de error para "+str(SNR)+" de: ",err/N)
+    print("La tasa de error, para un SNR="+str(SNR)+", es: ",err/N)
 
 
 # 6. Grafica de BER versus SNR
@@ -201,7 +201,7 @@ snr=[b for b in range(-2,4)]
 #Graficamos empleando el metodo scatter
 plt.scatter(snr, BER)
 plt.title("BER contra SNR")
-plt.xlabel("SNR")
+plt.xlabel("SNR (dB)")
 plt.ylabel("BER")
 plt.savefig("graficas/BER_vs_SNR.png")
 plt.grid()
