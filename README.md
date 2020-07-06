@@ -8,7 +8,7 @@ Se definió la frecuecia de la onda portadora como 5 kHz, por lo tanto se tiene 
 
 ![Grafica de la portadora](graficas/Forma_onda_portadora.png)
 
-Seguidamente se procedió a obtener la modulación BPSK de los bits del archivo `bits10k.csv`. La modulación BPSK (Binarial Phase Shift Keying o modulación binaria por despplazamiento de fase) es una modulación que opera sobre la fase de la señal de la portadora, donde un bit "1" se codifica con fase 0 grados y un bit "0" se codifica con una fase de 180 grados. Entonces se aplica esta definición para obtener la modulación de los bits del archivo `bits10k.csv`. Entonces para los primeros 10 podemos graficar la señal modulada como:
+Seguidamente se procedió a obtener la modulación BPSK de los bits del archivo `bits10k.csv`. La modulación BPSK (Binary Phase Shift Keying o modulación binaria por desplazamiento de fase) es una modulación que opera sobre la fase de la señal de la portadora, donde un bit "1" se codifica con fase 0 grados y un bit "0" se codifica con una fase de 180 grados. Entonces se aplica esta definición para obtener la modulación de los bits del archivo `bits10k.csv`. Entonces para los primeros 10 podemos graficar la señal modulada como:
 
 ![Grafica de la modulacion de los primeros 10 bits](graficas/modulado.png)
 
